@@ -1,0 +1,9 @@
+{{ define "content" }}
+    {{ if . }}
+        {{ range . }}
+        <div>{{ . }} </div>
+        {{ end }}
+    {{ else }}
+        No chats found
+    {{ end }}
+{{ end }}

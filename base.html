@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat app in HTMX</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <!-- Form stays unchanged -->
+    <form hx-post="/chat" hx-target="#message" method="post">
+      <label for="chat">Message:</label>
+      <input type="text" id="chat" name="chat" value="">
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- Separate div for server responses -->
+    <div id="message"></div>
+
+    <h1> CHATS </h1>
+    <div id="chats" hx-get="/getchats" hx-trigger="every 1s" hx-target="this">
+    {{ template "content"  . }}
+    </div>
+</body>
+</html>
