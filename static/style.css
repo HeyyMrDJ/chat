@@ -32,6 +32,7 @@ form input[type="text"] {
     padding: 5px;
     border: 1px solid #ccc; /* Lighter border for the input field */
     border-radius: 5px; /* Slightly rounded corners for the input field */
+    font-size: 16px;
 }
 
 /* Styling for the submit button */
