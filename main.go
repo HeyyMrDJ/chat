@@ -8,11 +8,13 @@ import (
 
 var chats = []string{}
 func main() {
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
     http.HandleFunc("/", serveHome)
     http.HandleFunc("/chat", createChat)
     http.HandleFunc("/getchats", getChats)
 
-    http.ListenAndServe(":8000", nil)
+    http.ListenAndServe(":9000", nil)
 }
 
 func addChat(newMessage string) {

@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Chat app in HTMX</title>
     <script src="https://unpkg.com/htmx.org"></script>
+    <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
+    <h1> HTMX Chat </h1>
     <!-- Form stays unchanged -->
     <form hx-post="/chat" hx-target="#message" method="post">
       <label for="chat">Message:</label>
@@ -16,7 +18,6 @@
     <!-- Separate div for server responses -->
     <div id="message"></div>
 
-    <h1> CHATS </h1>
     <div id="chats" hx-get="/getchats" hx-trigger="every 1s" hx-target="this">
     {{ template "content"  . }}
     </div>
